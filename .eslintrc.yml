@@ -1,0 +1,9 @@
+extends: chartjs
+
+parserOptions:
+  ecmaVersion: 5
+  sourceType: module
+
+env:
+  browser: true
+  node: true
