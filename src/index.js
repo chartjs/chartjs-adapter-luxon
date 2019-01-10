@@ -1,10 +1,9 @@
 import Chart from 'chart.js';
-import {DateTime} from 'luxon';
+import { DateTime } from 'luxon';
 
 var helpers = Chart.helpers;
-var adapter = Chart._adapters._date;
 
-var SHORT_PRESETS = {
+var PRESETS = {
 	millisecond: 'h:mm:ss.SSS a',
 	second: 'h:mm:ss a',
 	minute: 'h:mm a',
@@ -16,27 +15,25 @@ var SHORT_PRESETS = {
 	year: 'yyyy'
 };
 
-var LONG_PRESETS = {
-	millisecond: 'MMM d, yyyy h:mm:ss.SSS a',
-	second: 'MMM d, yyyy h:mm:ss a',
-	minute: 'MMM d, yyyy h:mm a',
-	hour: 'MMM d, yyyy ha',
-	day: 'MMM d, yyyy',
-	week: 'DD',
-	month: 'MMM yyyy',
-	quarter: "'Q'q - yyyy",
-	year: 'yyyy'
+var PRESETS = {
+	full: 'MMM d, yyyy h:mm:ss.SSS a',
+	time: 'MMM d, yyyy h:mm:ss a',
+	date: 'MMM d, yyyy'
 };
 
 function create(time) {
 	return DateTime.fromMillis(time);
 }
 
-helpers.merge(adapter, {
+helpers.merge(Chart._adapters._date, {
 	_id: 'luxon', // DEBUG
 
-	presets: function(long) {
-		return long ? LONG_PRESETS : SHORT_PRESETS;
+	formats: function() {
+		return FORMATS;
+	},
+
+	presets: function() {
+		return PRESETS;
 	},
 
 	parse: function(value, format) {
