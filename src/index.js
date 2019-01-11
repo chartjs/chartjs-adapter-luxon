@@ -1,9 +1,7 @@
-import Chart from 'chart.js';
+import { _adapters, helpers } from 'chart.js';
 import { DateTime } from 'luxon';
 
-var helpers = Chart.helpers;
-
-var PRESETS = {
+var FORMATS = {
 	millisecond: 'h:mm:ss.SSS a',
 	second: 'h:mm:ss a',
 	minute: 'h:mm a',
@@ -25,7 +23,7 @@ function create(time) {
 	return DateTime.fromMillis(time);
 }
 
-helpers.merge(Chart._adapters._date, {
+helpers.merge(_adapters._date, {
 	_id: 'luxon', // DEBUG
 
 	formats: function() {
@@ -73,9 +71,9 @@ helpers.merge(Chart._adapters._date, {
 		return +create(max).diff(create(min)).as(unit);
 	},
 
-	startOf: function(time, unit, opt) {
+	startOf: function(time, unit, weekday) {
 		if (unit === 'isoWeek') {
-			return +create(time).isoWeekday(opt);
+			return +create(time).isoWeekday(weekday);
 		}
 		return unit ? +create(time).startOf(unit) : time;
 	},

@@ -9,4 +9,4 @@ env:
   node: true
 
 rules:
-  object-curly-spacing: always
+  object-curly-spacing: [2, "always"]
