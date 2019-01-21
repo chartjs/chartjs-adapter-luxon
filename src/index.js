@@ -54,7 +54,7 @@ helpers.merge(_adapters._date, {
 			value = DateTime.fromJSDate(value);
 		}
 
-		return value.isValid ? +value : null;
+		return value.isValid ? value.valueOf() : null;
 	},
 
 	format: function(time, format) {
@@ -64,21 +64,21 @@ helpers.merge(_adapters._date, {
 	add: function(time, amount, unit) {
 		var args = {};
 		args[unit] = amount;
-		return +create(time).plus(args);
+		return create(time).plus(args).valueOf();
 	},
 
 	diff: function(max, min, unit) {
-		return +create(max).diff(create(min)).as(unit);
+		return create(max).diff(create(min)).as(unit).valueOf();
 	},
 
 	startOf: function(time, unit, weekday) {
 		if (unit === 'isoWeek') {
-			return +create(time).isoWeekday(weekday);
+			return create(time).isoWeekday(weekday).valueOf();
 		}
-		return unit ? +create(time).startOf(unit) : time;
+		return unit ? create(time).startOf(unit).valueOf() : time;
 	},
 
 	endOf: function(time, unit) {
-		return +create(time).endOf(unit);
+		return create(time).endOf(unit).valueOf();
 	}
 });
