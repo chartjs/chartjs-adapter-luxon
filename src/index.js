@@ -2,6 +2,7 @@ import { _adapters, helpers } from 'chart.js';
 import { DateTime } from 'luxon';
 
 var FORMATS = {
+	datetime: 'MMM d, yyyy, h:mm:ss a',
 	millisecond: 'h:mm:ss.SSS a',
 	second: 'h:mm:ss a',
 	minute: 'h:mm a',
@@ -13,25 +14,15 @@ var FORMATS = {
 	year: 'yyyy'
 };
 
-var PRESETS = {
-	full: 'MMM d, yyyy h:mm:ss.SSS a',
-	time: 'MMM d, yyyy h:mm:ss a',
-	date: 'MMM d, yyyy'
-};
-
 function create(time) {
 	return DateTime.fromMillis(time);
 }
 
-helpers.merge(_adapters._date, {
+_adapters._date.override({
 	_id: 'luxon', // DEBUG
 
 	formats: function() {
 		return FORMATS;
-	},
-
-	presets: function() {
-		return PRESETS;
 	},
 
 	parse: function(value, format) {
