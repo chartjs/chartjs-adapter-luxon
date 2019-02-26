@@ -3,11 +3,11 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var file = require('gulp-file');
-var {exec} = require('child_process');
+var { exec } = require('child_process');
 var pkg = require('./package.json');
 
 var argv = require('yargs')
-	.option('output', {alias: 'o', default: 'dist'})
+	.option('output', { alias: 'o', default: 'dist' })
 	.argv;
 
 function run(bin, args, done) {
@@ -46,7 +46,7 @@ gulp.task('bower', function() {
 		main: argv.output + '/' + pkg.name + '.js'
 	}, null, 2);
 
-	return file('bower.json', json, {src: true})
+	return file('bower.json', json, { src: true })
 		.pipe(gulp.dest('./'));
 });
 
