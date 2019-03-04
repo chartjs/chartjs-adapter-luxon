@@ -1,0 +1,8 @@
+{
+  "name": "chartjs-adapter-luxon",
+  "description": "Chart.js adapter to use luxon for time functionalities",
+  "homepage": "https://www.chartjs.org",
+  "license": "MIT",
+  "version": "0.1.1",
+  "main": "dist/chartjs-adapter-luxon.js"
+}
