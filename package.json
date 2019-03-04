@@ -2,9 +2,9 @@
   "name": "chartjs-adapter-luxon",
   "homepage": "https://www.chartjs.org",
   "description": "Chart.js adapter to use luxon for time functionalities",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
-  "main": "dist/chartjs-date-luxon.js",
+  "main": "dist/chartjs-adapter-luxon.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/chartjs/chartjs-adapter-luxon.git"
