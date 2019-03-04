@@ -1,5 +1,7 @@
 # chartjs-adapter-luxon
 
+[![release](https://img.shields.io/github/release/chartjs/chartjs-adapter-luxon.svg?style=flat-square&maxAge=600)](https://github.com/chartjs/chartjs-adapter-luxon/releases/latest) [![travis](https://img.shields.io/travis/chartjs/chartjs-adapter-luxon.svg?style=flat-square&maxAge=60)](https://travis-ci.org/chartjs/chartjs-adapter-luxon) [![awesome](https://awesome.re/badge-flat2.svg)](https://github.com/chartjs/awesome)
+
 ## Overview
 
 This adapter allows to use Luxon with the Chart.js.

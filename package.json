@@ -7,7 +7,7 @@
   "main": "dist/chartjs-date-luxon.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chartjs/chartjs-date-luxon.git"
+    "url": "https://github.com/chartjs/chartjs-adapter-luxon.git"
   },
   "keywords": [
     "chart.js",
@@ -17,8 +17,7 @@
   ],
   "files": [
     "bower.json",
-    "dist/*.js",
-    "src"
+    "dist/*.js"
   ],
   "devDependencies": {
     "eslint-config-chartjs": "^0.1.0",
