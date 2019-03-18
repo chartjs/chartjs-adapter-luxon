@@ -15,8 +15,7 @@ Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or l
 ### npm
 
 ```
-npm install chartjs-adapter-luxon --save
-npm install luxon --save
+npm install luxon chartjs-adapter-luxon --save
 ```
 
 ```javascript
@@ -34,7 +33,7 @@ By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon` returns the lat
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.1.1"></script>
 ```
 
-Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
+Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/).
 
 ## Configuration
 
