@@ -23,9 +23,9 @@ jasmine.triggerMouseEvent = utils.triggerMouseEvent;
 beforeEach(function() {
 	Chart.helpers.merge(Chart.defaults.global, {
 		animation: false,
-		legend: {display: false},
+		legend: { display: false },
 		responsive: false,
-		title: {display: false},
+		title: { display: false },
 		tooltips: false,
 		elements: {
 			arc: {

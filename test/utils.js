@@ -9,8 +9,8 @@ function acquireChart(config, options) {
 
 	config = config || {};
 	options = options || {};
-	options.canvas = options.canvas || {height: 512, width: 512};
-	options.wrapper = options.wrapper || {class: 'chartjs-wrapper'};
+	options.canvas = options.canvas || { height: 512, width: 512 };
+	options.wrapper = options.wrapper || { class: 'chartjs-wrapper' };
 
 	for (key in options.canvas) {
 		if (options.canvas.hasOwnProperty(key)) {

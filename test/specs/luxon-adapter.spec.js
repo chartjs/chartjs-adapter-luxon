@@ -34,6 +34,6 @@ describe('Luxon Adapter', function() {
 			}
 		});
 
-		expect(chart.scales['xAxis0'].ticks[0]).toEqual('Jan 1, 1970, 6:00:00 AM');
+		expect(chart.scales.xAxis0.ticks[0]).toEqual('Jan 1, 1970, 6:00:00 AM');
 	});
 });

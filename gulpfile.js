@@ -46,6 +46,7 @@ gulp.task('test-unit', function(done) {
 gulp.task('lint', function() {
 	var files = [
 		'src/**/*.js',
+		'test/**/*.js',
 		'*.js'
 	];
 
