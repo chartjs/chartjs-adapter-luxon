@@ -47,7 +47,9 @@ import 'chartjs-adapter-luxon';
 
 ## Configuration
 
-No adapter configuration is currently available, read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [Luxon formats](https://moment.github.io/luxon/docs/manual/formatting.html).
+Any date adapter options in the chart configuration will be passed through to Luxon's factory functions. See the [Luxon API docs](https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html#static-method-fromMillis) for the supported options, such as `zone` and `locale`, that these functions accept.
+
+Read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [Luxon formats](https://moment.github.io/luxon/docs/manual/formatting.html).
 
 ## Development
 

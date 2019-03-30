@@ -60,8 +60,8 @@ module.exports = function(karma) {
 			onwarn: warning => {
 				// Silence warnings about Luxon's circular dependencies
 				// as we can't do anything about them.
-				if (warning.code !== "CIRCULAR_DEPENDENCY") {
-					console.warn(`(!) ${warning.message}`);
+				if (warning.code !== 'CIRCULAR_DEPENDENCY') {
+					console.warn('(!) ' + warning.message);
 				}
 			},
 		},
@@ -79,8 +79,8 @@ module.exports = function(karma) {
 		karma.coverageReporter = {
 			dir: 'coverage/',
 			reporters: [
-				{type: 'html', subdir: 'html'},
-				{type: 'lcovonly', subdir: '.'}
+				{ type: 'html', subdir: 'html' },
+				{ type: 'lcovonly', subdir: '.' }
 			]
 		};
 		[
