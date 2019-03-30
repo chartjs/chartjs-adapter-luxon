@@ -1,7 +1,6 @@
 'use strict';
 
 import Chart from 'chart.js';
-import '../src';
 import utils from './utils';
 
 var charts = {};
@@ -17,8 +16,6 @@ jasmine.chart = {
 		delete charts[chart.id];
 	}
 };
-
-jasmine.triggerMouseEvent = utils.triggerMouseEvent;
 
 beforeEach(function() {
 	Chart.helpers.merge(Chart.defaults.global, {

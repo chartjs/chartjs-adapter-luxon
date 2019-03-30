@@ -1,5 +1,4 @@
 const commonjs = require('rollup-plugin-commonjs');
-const istanbul = require('rollup-plugin-istanbul');
 const resolve = require('rollup-plugin-node-resolve');
 const builds = require('./rollup.config');
 
@@ -49,21 +48,16 @@ module.exports = function(karma) {
 				commonjs()
 			],
 			external: [
-				'chart.js'
+				'chart.js',
+				'luxon'
 			],
 			output: {
 				format: 'umd',
 				globals: {
-					'chart.js': 'Chart'
+					'chart.js': 'Chart',
+					luxon: 'luxon'
 				}
-			},
-			onwarn: warning => {
-				// Silence warnings about Luxon's circular dependencies
-				// as we can't do anything about them.
-				if (warning.code !== 'CIRCULAR_DEPENDENCY') {
-					console.warn('(!) ' + warning.message);
-				}
-			},
+			}
 		},
 
 		customPreprocessors: {
@@ -73,24 +67,4 @@ module.exports = function(karma) {
 			}
 		}
 	});
-
-	if (args.coverage) {
-		karma.reporters.push('coverage');
-		karma.coverageReporter = {
-			dir: 'coverage/',
-			reporters: [
-				{ type: 'html', subdir: 'html' },
-				{ type: 'lcovonly', subdir: '.' }
-			]
-		};
-		[
-			karma.rollupPreprocessor,
-			karma.customPreprocessors.sources.options
-		].forEach((v) => {
-			(v.plugins || (v.plugins = [])).push(
-				istanbul({
-					include: 'src/**/*.js'
-				}));
-		});
-	}
 };

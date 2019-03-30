@@ -57,25 +57,7 @@ function releaseChart(chart) {
 	}
 }
 
-function triggerMouseEvent(chart, type, el) {
-	var node = chart.canvas;
-	var rect = node.getBoundingClientRect();
-	var x = el ? el.x !== undefined ? el.x : el._model.x : null;
-	var y = el ? el.y !== undefined ? el.y : el._model.y : null;
-
-	var event = new MouseEvent(type, {
-		clientX: el ? rect.left + x : undefined,
-		clientY: el ? rect.top + y : undefined,
-		cancelable: true,
-		bubbles: true,
-		view: window
-	});
-
-	node.dispatchEvent(event);
-}
-
 export default {
 	acquireChart: acquireChart,
-	releaseChart: releaseChart,
-	triggerMouseEvent: triggerMouseEvent
+	releaseChart: releaseChart
 };

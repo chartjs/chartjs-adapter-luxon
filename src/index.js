@@ -29,7 +29,7 @@ _adapters._date.override({
 	},
 
 	parse: function(value, format) {
-		var me = this;
+		var options = this.options;
 
 		if (helpers.isNullOrUndef(value)) {
 			return null;
@@ -37,25 +37,24 @@ _adapters._date.override({
 
 		var type = typeof value;
 		if (type === 'number') {
-			value = me._create(value);
+			value = this._create(value);
 		} else if (type === 'string') {
 			if (typeof format === 'string') {
-				value = DateTime.fromFormat(value, format, me.options);
+				value = DateTime.fromFormat(value, format, options);
 			} else {
-				value = DateTime.fromISO(value, me.options);
+				value = DateTime.fromISO(value, options);
 			}
 		} else if (type === 'object') {
 			value = DateTime.fromObject(value);
 		} else if (value instanceof Date) {
-			value = DateTime.fromJSDate(value, me.options);
+			value = DateTime.fromJSDate(value, options);
 		}
 
 		return value.isValid ? value.valueOf() : null;
 	},
 
 	format: function(time, format) {
-		var me = this;
-		return me._create(time).toFormat(format, me.options);
+		return this._create(time).toFormat(format, this.options);
 	},
 
 	add: function(time, amount, unit) {
@@ -65,17 +64,14 @@ _adapters._date.override({
 	},
 
 	diff: function(max, min, unit) {
-		var me = this;
-		return me._create(max).diff(me._create(min)).as(unit).valueOf();
+		return this._create(max).diff(this._create(min)).as(unit).valueOf();
 	},
 
 	startOf: function(time, unit, weekday) {
-		var me = this;
-
 		if (unit === 'isoWeek') {
-			return me._create(time).isoWeekday(weekday).valueOf();
+			return this._create(time).isoWeekday(weekday).valueOf();
 		}
-		return unit ? me._create(time).startOf(unit).valueOf() : time;
+		return unit ? this._create(time).startOf(unit).valueOf() : time;
 	},
 
 	endOf: function(time, unit) {
