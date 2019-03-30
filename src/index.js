@@ -20,7 +20,7 @@ _adapters._date.override({
 	/**
 	 * @private
 	 */
-	_create(time) {
+	_create: function(time) {
 		return DateTime.fromMillis(time, this.options);
 	},
 
