@@ -4,46 +4,36 @@
 
 ## Overview
 
-This adapter allows to use Luxon with the Chart.js.
+This adapter allows the use of Luxon with Chart.js.
 
 Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [Luxon](https://moment.github.io/luxon/) **1.0.0** or later.
+
+**Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
 
 ## Installation
 
 ### npm
 
 ```
-npm install chartjs-adapter-luxon --save
+npm install luxon chartjs-adapter-luxon --save
+```
+
+```javascript
+import Chart from 'chart.js';
+import 'chartjs-adapter-luxon';
 ```
 
 ### CDN
 
 By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the URL:
 
-```
-https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.1.0
-```
-
-Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
-
-## Integration
-
-**Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
-
-### HTML
-
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/luxon@1.8.2/build/global/luxon.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.11.4/build/global/luxon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.1.1"></script>
 ```
 
-### Module
-
-```javascript
-import Chart from 'chart.js';
-import 'chartjs-adapter-luxon';
-```
+Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/).
 
 ## Configuration
 
