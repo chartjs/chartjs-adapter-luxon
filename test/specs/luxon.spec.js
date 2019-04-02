@@ -4,7 +4,7 @@ var options = {
 	zone: 'UTC+1',
 	locale: 'en-GB',
 	numberingSystem: 'latn',
-	outputCalender: 'gregory'
+	outputCalendar: 'gregory'
 };
 
 describe('Luxon', function() {
