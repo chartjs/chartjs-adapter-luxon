@@ -2,9 +2,14 @@ language: node_js
 node_js:
   - lts/*
 
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 script:
   - gulp lint
   - gulp build
+  - gulp test-unit
   - gulp bower
 
 # IMPORTANT: scripts require GITHUB_AUTH_TOKEN and GITHUB_AUTH_EMAIL environment variables
