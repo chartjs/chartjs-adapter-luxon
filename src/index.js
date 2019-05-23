@@ -2,16 +2,16 @@ import { _adapters, helpers } from 'chart.js';
 import { DateTime } from 'luxon';
 
 var FORMATS = {
-	datetime: 'MMM d, yyyy, h:mm:ss a',
+	datetime: DateTime.DATETIME_MED_WITH_SECONDS,
 	millisecond: 'h:mm:ss.SSS a',
-	second: 'h:mm:ss a',
-	minute: 'h:mm a',
-	hour: 'ha',
-	day: 'MMM d',
+	second: DateTime.TIME_WITH_SECONDS,
+	minute: DateTime.TIME_SIMPLE,
+	hour: { hour: 'numeric' },
+	day: DateTime.DATE_FULL,
 	week: 'DD',
-	month: 'MMM yyyy',
+	month: DateTime.DATE_MED,
 	quarter: "'Q'q - yyyy",
-	year: 'yyyy'
+	year: { year: 'numeric' }
 };
 
 _adapters._date.override({
@@ -54,7 +54,10 @@ _adapters._date.override({
 	},
 
 	format: function(time, format) {
-		return this._create(time).toFormat(format, this.options);
+		var datetime = this._create(time);
+		return typeof format === 'string'
+			? datetime.toFormat(format, this.options)
+			: datetime.toLocaleString(format, this.options);
 	},
 
 	add: function(time, amount, unit) {
