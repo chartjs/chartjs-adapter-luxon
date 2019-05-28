@@ -56,7 +56,7 @@ gulp.task('lint', function() {
 		.pipe(eslint.failAfterError());
 });
 
-gulp.task('test', gulp.parallel('lint', 'test-unit'));
+gulp.task('check', gulp.parallel('lint', 'test-unit'));
 
 gulp.task('bower', function() {
 	var json = JSON.stringify({

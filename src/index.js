@@ -7,9 +7,9 @@ var FORMATS = {
 	second: DateTime.TIME_WITH_SECONDS,
 	minute: DateTime.TIME_SIMPLE,
 	hour: { hour: 'numeric' },
-	day: DateTime.DATE_FULL,
+	day: { day: 'numeric', month: 'short' },
 	week: 'DD',
-	month: DateTime.DATE_MED,
+	month: { month: 'short', year: 'numeric' },
 	quarter: "'Q'q - yyyy",
 	year: { year: 'numeric' }
 };
@@ -57,7 +57,7 @@ _adapters._date.override({
 		var datetime = this._create(time);
 		return typeof format === 'string'
 			? datetime.toFormat(format, this.options)
-			: datetime.toLocaleString(format, this.options);
+			: datetime.toLocaleString(format);
 	},
 
 	add: function(time, amount, unit) {

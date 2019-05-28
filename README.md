@@ -4,7 +4,7 @@
 
 ## Overview
 
-This adapter allows the use of Luxon with Chart.js.
+This adapter allows the use of Luxon with Chart.js. Luxon provides built-in support for time zones and internationalization.
 
 Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [Luxon](https://moment.github.io/luxon/) **1.0.0** or later.
 
