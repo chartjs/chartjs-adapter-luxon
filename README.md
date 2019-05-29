@@ -30,7 +30,7 @@ By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon` returns the lat
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/luxon@1.15.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.1.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.2.0"></script>
 ```
 
 Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/).
