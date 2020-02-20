@@ -44,7 +44,7 @@ _adapters._date.override({
 			} else {
 				value = DateTime.fromISO(value, options);
 			}
-		} else if (type === 'object') {
+		} else if (type === 'object' && !(value instanceof DateTime)) {
 			value = DateTime.fromObject(value);
 		} else if (value instanceof Date) {
 			value = DateTime.fromJSDate(value, options);
