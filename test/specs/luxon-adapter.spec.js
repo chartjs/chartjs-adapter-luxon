@@ -8,16 +8,15 @@ describe('Luxon Adapter', function() {
 			data: {
 				datasets: [{
 					data: [{
-						t: 0,
+						x: 0,
 						y: 100
 					}]
 				}]
 			},
 			options: {
 				scales: {
-					xAxes: [{
+					x: {
 						type: 'time',
-						id: 'xAxis0',
 						time: {
 							unit: 'second',
 							displayFormats: {
@@ -32,12 +31,12 @@ describe('Luxon Adapter', function() {
 						ticks: {
 							source: 'data'
 						}
-					}]
+					}
 				}
 			}
 		});
 
-		expect(chart.scales.xAxis0.ticks[0]).toEqual('Jan 1, 1970, 6:00:00 AM');
+		expect(chart.scales.x.ticks[0].label).toEqual('Jan 1, 1970, 6:00:00 AM');
 	});
 
 	it('should parse Luxon DateTime objects directly', function() {
