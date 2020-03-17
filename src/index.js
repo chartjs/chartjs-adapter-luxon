@@ -1,7 +1,7 @@
-import { _adapters, helpers } from 'chart.js';
+import Chart from 'chart.js';
 import { DateTime } from 'luxon';
 
-var FORMATS = {
+const FORMATS = {
 	datetime: DateTime.DATETIME_MED_WITH_SECONDS,
 	millisecond: 'h:mm:ss.SSS a',
 	second: DateTime.TIME_WITH_SECONDS,
@@ -14,7 +14,7 @@ var FORMATS = {
 	year: { year: 'numeric' }
 };
 
-_adapters._date.override({
+Chart._adapters._date.override({
 	_id: 'luxon', // DEBUG
 
 	/**
@@ -29,13 +29,13 @@ _adapters._date.override({
 	},
 
 	parse: function(value, format) {
-		var options = this.options;
+		const options = this.options;
 
-		if (helpers.isNullOrUndef(value)) {
+		if (Chart.helpers.isNullOrUndef(value)) {
 			return null;
 		}
 
-		var type = typeof value;
+		const type = typeof value;
 		if (type === 'number') {
 			value = this._create(value);
 		} else if (type === 'string') {
@@ -54,14 +54,14 @@ _adapters._date.override({
 	},
 
 	format: function(time, format) {
-		var datetime = this._create(time);
+		const datetime = this._create(time);
 		return typeof format === 'string'
 			? datetime.toFormat(format, this.options)
 			: datetime.toLocaleString(format);
 	},
 
 	add: function(time, amount, unit) {
-		var args = {};
+		const args = {};
 		args[unit] = amount;
 		return this._create(time).plus(args).valueOf();
 	},
