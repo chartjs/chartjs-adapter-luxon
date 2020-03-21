@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { _adapters } from 'chart.js';
 
 describe('Luxon Adapter', function() {
@@ -37,6 +38,13 @@ describe('Luxon Adapter', function() {
 		});
 
 		expect(chart.scales.xAxis0.ticks[0]).toEqual('Jan 1, 1970, 6:00:00 AM');
+	});
+
+	it('should parse Luxon DateTime objects directly', function() {
+		var adapter = new _adapters._date();
+
+		expect(adapter.parse(DateTime.fromMillis(0))).toEqual(0);
+		expect(adapter.parse(DateTime.fromISO('1970-01-01T00:00:01Z'))).toEqual(1000);
 	});
 
 	it('should format correctly using format presets', function() {
