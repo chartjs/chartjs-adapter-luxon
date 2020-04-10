@@ -4,8 +4,6 @@
 
 const babel = require('rollup-plugin-babel');
 const cleanup = require('rollup-plugin-cleanup');
-const json = require('@rollup/plugin-json');
-const resolve = require('@rollup/plugin-node-resolve');
 const terser = require('rollup-plugin-terser').terser;
 const pkg = require('./package.json');
 
@@ -21,14 +19,6 @@ const input = 'src/index.js';
 module.exports = [
 	{
 		input,
-		plugins: [
-			json(),
-			resolve(),
-			babel(),
-			cleanup({
-				sourcemap: true
-			})
-		],
 		output: {
 			file: `dist/${pkg.name}.js`,
 			banner: banner,
@@ -47,9 +37,6 @@ module.exports = [
 	{
 		input,
 		plugins: [
-			json(),
-			resolve(),
-			babel(),
 			terser({
 				output: {
 					preamble: banner
@@ -77,8 +64,6 @@ module.exports = [
 	{
 		input,
 		plugins: [
-			json(),
-			resolve(),
 			babel({ envName: 'es6' }),
 			cleanup({
 				sourcemap: true
@@ -98,8 +83,6 @@ module.exports = [
 	{
 		input,
 		plugins: [
-			json(),
-			resolve(),
 			babel({ envName: 'es6' }),
 			terser({
 				output: {
@@ -110,7 +93,7 @@ module.exports = [
 		output: {
 			file: `dist/${pkg.name}.esm.min.js`,
 			format: 'esm',
-			indent: false,
+			indent: false
 		},
 		external: [
 			'chart.js',
