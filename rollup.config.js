@@ -72,8 +72,8 @@ module.exports = [
 	},
 
 	// ES6 builds
-	// dist/Chart.esm.min.js
-	// dist/Chart.esm.js
+	// dist/chartjs-adapter-luxon.esm.js
+	// dist/chartjs-adapter-luxon.esm.min.js
 	{
 		input,
 		plugins: [
@@ -108,7 +108,7 @@ module.exports = [
 			})
 		],
 		output: {
-			file: 'dist/${pkg.name}.esm.min.js',
+			file: `dist/${pkg.name}.esm.min.js`,
 			format: 'esm',
 			indent: false,
 		},
