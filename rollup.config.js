@@ -1,6 +1,3 @@
-/* eslint-disable import/no-commonjs */
-/* eslint-env es6 */
-
 const terser = require('rollup-plugin-terser').terser;
 const pkg = require('./package.json');
 
@@ -54,10 +51,6 @@ module.exports = [
 			'luxon'
 		]
 	},
-
-	// ES6 builds
-	// dist/chartjs-adapter-luxon.esm.js
-	// dist/chartjs-adapter-luxon.esm.min.js
 	{
 		input,
 		output: {
@@ -89,5 +82,5 @@ module.exports = [
 			'chart.js',
 			'luxon'
 		]
-	},
+	}
 ];
