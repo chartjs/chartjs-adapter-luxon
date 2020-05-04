@@ -1,9 +1,6 @@
 /* eslint-disable import/no-commonjs */
 /* eslint-env es6 */
 
-
-const babel = require('rollup-plugin-babel');
-const cleanup = require('rollup-plugin-cleanup');
 const terser = require('rollup-plugin-terser').terser;
 const pkg = require('./package.json');
 
@@ -63,12 +60,6 @@ module.exports = [
 	// dist/chartjs-adapter-luxon.esm.min.js
 	{
 		input,
-		plugins: [
-			babel({ envName: 'es6' }),
-			cleanup({
-				sourcemap: true
-			})
-		],
 		output: {
 			file: `dist/${pkg.name}.esm.js`,
 			banner,
@@ -83,7 +74,6 @@ module.exports = [
 	{
 		input,
 		plugins: [
-			babel({ envName: 'es6' }),
 			terser({
 				output: {
 					preamble: banner
