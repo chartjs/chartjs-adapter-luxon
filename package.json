@@ -5,6 +5,9 @@
   "version": "0.2.1",
   "license": "MIT",
   "main": "dist/chartjs-adapter-luxon.js",
+  "jsdelivr": "dist/chartjs-adapter-luxon.min.js",
+  "unpkg": "dist/chartjs-adapter-luxon.min.js",
+  "module": "dist/chartjs-adapter-luxon.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/chartjs/chartjs-adapter-luxon.git"

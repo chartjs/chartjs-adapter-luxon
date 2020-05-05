@@ -8,9 +8,11 @@ const banner = `/*!
  * Released under the ${pkg.license} license
  */`;
 
+const input = 'src/index.js';
+
 module.exports = [
 	{
-		input: 'src/index.js',
+		input,
 		output: {
 			file: `dist/${pkg.name}.js`,
 			banner: banner,
@@ -27,7 +29,14 @@ module.exports = [
 		]
 	},
 	{
-		input: 'src/index.js',
+		input,
+		plugins: [
+			terser({
+				output: {
+					preamble: banner
+				}
+			})
+		],
 		output: {
 			file: `dist/${pkg.name}.min.js`,
 			format: 'umd',
@@ -37,6 +46,26 @@ module.exports = [
 				luxon: 'luxon'
 			}
 		},
+		external: [
+			'chart.js',
+			'luxon'
+		]
+	},
+	{
+		input,
+		output: {
+			file: `dist/${pkg.name}.esm.js`,
+			banner,
+			format: 'esm',
+			indent: false,
+		},
+		external: [
+			'chart.js',
+			'luxon'
+		]
+	},
+	{
+		input,
 		plugins: [
 			terser({
 				output: {
@@ -44,6 +73,11 @@ module.exports = [
 				}
 			})
 		],
+		output: {
+			file: `dist/${pkg.name}.esm.min.js`,
+			format: 'esm',
+			indent: false
+		},
 		external: [
 			'chart.js',
 			'luxon'
