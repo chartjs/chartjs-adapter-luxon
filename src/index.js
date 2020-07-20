@@ -31,7 +31,7 @@ Chart._adapters._date.override({
 	parse: function(value, format) {
 		const options = this.options;
 
-		if (Chart.helpers.isNullOrUndef(value)) {
+		if (value === null || typeof value === 'undefined') {
 			return null;
 		}
 
