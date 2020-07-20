@@ -19,7 +19,6 @@
     "time"
   ],
   "files": [
-    "bower.json",
     "dist/*.js"
   ],
   "devDependencies": {
@@ -29,7 +28,6 @@
     "eslint-config-chartjs": "^0.1.0",
     "gulp": "^4.0.0",
     "gulp-eslint": "^5.0.0",
-    "gulp-file": "^0.4.0",
     "karma": "^4.0.1",
     "karma-firefox-launcher": "^1.1.0",
     "karma-jasmine": "^2.0.1",
