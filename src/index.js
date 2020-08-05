@@ -27,8 +27,8 @@ Chart._adapters._date.override({
 	/**
 	 * @private
 	 */
-	_isoWeekday: function(dateTime, weekday){
-		var normalizedWeekday = weekday % 7 ? weekday % 7 : 7;
+	_isoWeekday: function(dateTime, weekday) {
+		const normalizedWeekday = Math.abs(weekday) % 7 || 7;
 		var diff = dateTime.weekday < normalizedWeekday ? normalizedWeekday - dateTime.weekday - 7 : normalizedWeekday - dateTime.weekday;
 		return dateTime.plus({days: diff}).startOf('day');
 	},	
@@ -81,7 +81,7 @@ Chart._adapters._date.override({
 
 	startOf: function(time, unit, weekday) {
 		if (unit === 'isoWeek') {
-			return this._isoWeekday(this._create(time), Math.abs(weekday)).valueOf();
+			return this._isoWeekday(this._create(time), weekday).valueOf();
 		}
 		return unit ? this._create(time).startOf(unit).valueOf() : time;
 	},
