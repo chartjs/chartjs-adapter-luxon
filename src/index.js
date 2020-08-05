@@ -23,7 +23,15 @@ Chart._adapters._date.override({
 	_create: function(time) {
 		return DateTime.fromMillis(time, this.options);
 	},
-
+	
+	/**
+	 * @private
+	 */
+	_isoWeekday: function(dateTime, weekday){
+		var diff = (weekday != null ? weekday : 7) - dateTime.weekday;
+		return dateTime.plus({days: diff}).startOf('day');
+	},	
+	
 	formats: function() {
 		return FORMATS;
 	},
@@ -72,7 +80,7 @@ Chart._adapters._date.override({
 
 	startOf: function(time, unit, weekday) {
 		if (unit === 'isoWeek') {
-			return this._create(time).isoWeekday(weekday).valueOf();
+			return this._isoWeekday(this._create(time), weekday).valueOf();
 		}
 		return unit ? this._create(time).startOf(unit).valueOf() : time;
 	},
