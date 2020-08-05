@@ -29,7 +29,7 @@ Chart._adapters._date.override({
 	 */
 	_isoWeekday: function(dateTime, weekday) {
 		const normalizedWeekday = Math.abs(weekday) % 7 || 7;
-		var diff = dateTime.weekday < normalizedWeekday ? normalizedWeekday - dateTime.weekday - 7 : normalizedWeekday - dateTime.weekday;
+		const diff = dateTime.weekday < normalizedWeekday ? normalizedWeekday - dateTime.weekday - 7 : normalizedWeekday - dateTime.weekday;
 		return dateTime.plus({days: diff}).startOf('day');
 	},	
 	
