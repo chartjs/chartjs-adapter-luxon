@@ -23,7 +23,7 @@ Chart._adapters._date.override({
 	_create: function(time) {
 		return DateTime.fromMillis(time, this.options);
 	},
-	
+
 	formats: function() {
 		return FORMATS;
 	},
