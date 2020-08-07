@@ -91,7 +91,20 @@ describe('Luxon Adapter', function() {
 			expect(adapter.format(startOf, 'ccc')).toEqual('Mon');
 			expect(startOf.day).not.toBeGreaterThan(dt.day);
 		}
-		
+
+		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', 100);
+			expect(adapter.format(startOf, 'ccc')).toEqual('Sat');
+			expect(startOf.day).not.toBeGreaterThan(dt.day);
+		}
+
+		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', -100);
+			expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
+			expect(startOf.day).not.toBeGreaterThan(dt.day);
+		}
 		
 	});
 });
