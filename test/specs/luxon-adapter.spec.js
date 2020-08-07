@@ -65,7 +65,7 @@ describe('Luxon Adapter', function() {
 	
 	it('should startOf correctly using isoWeek preset', function() {
 		const adapter = new _adapters._date();
-	
+
 		const dayOfWeekNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 		const daysInMonth = DateTime.local().daysInMonth;
 
@@ -77,14 +77,14 @@ describe('Luxon Adapter', function() {
 				expect(startOf.day).not.toBeGreaterThan(dt.day);
 			}
 		}
-		
+
 		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
 			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
 			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', false);
 			expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
 			expect(startOf.day).not.toBeGreaterThan(dt.day);
 		}
-		
+
 		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
 			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
 			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', true);
@@ -105,6 +105,6 @@ describe('Luxon Adapter', function() {
 			expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
 			expect(startOf.day).not.toBeGreaterThan(dt.day);
 		}
-		
+
 	});
 });
