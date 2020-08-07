@@ -66,11 +66,12 @@ describe('Luxon Adapter', function() {
 	it('should startOf correctly using isoWeek preset', function() {
 		const adapter = new _adapters._date();
 	
-		const dayOfWeekNames = ['Sun', 'Mon']; 
+		const dayOfWeekNames = ['Sun', 'Mon'];
+		const daysInMonth = DateTime.local().daysInMonth;
 
 		for (const dayOfWeek of dayOfWeekNames) {
-			for (let dayOfMonth=1; dayOfMonth<=31; dayOfMonth++) {
-				const dt = DateTime.local(2020, 8, dayOfMonth, 8, 30);
+			for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+				const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
 				const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeekNames.indexOf(dayOfWeek));
 				expect(adapter.format(startOf, 'ccc')).toEqual(dayOfWeek);
 				expect(startOf.day).not.toBeGreaterThan(dt.day);
