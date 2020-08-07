@@ -62,4 +62,20 @@ describe('Luxon Adapter', function() {
 		expect(adapter.format(1559056227321, formats.millisecond)).toEqual('3:10:27.321 PM');
 		expect(adapter.format(1559056227321, formats.datetime)).toEqual('May 28, 2019, 3:10:27 PM');
 	});
+	
+	it('should startOf correctly using isoWeek preset', function() {
+		const adapter = new _adapters._date();
+	
+		const dayOfWeekNames = ['Sun', 'Mon']; 
+
+		for (const dayOfWeek of dayOfWeekNames) {
+			for (let dayOfMonth=1; dayOfMonth<=31; dayOfMonth++) {
+				const dt = DateTime.local(2020, 8, dayOfMonth, 8, 30);
+				const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeekNames.indexOf(dayOfWeek));
+				expect(adapter.format(startOf, 'ccc')).toEqual(dayOfWeek);
+				expect(startOf.day).not.toBeGreaterThan(dt.day);
+			}
+		}
+		
+	});
 });

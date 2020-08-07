@@ -24,15 +24,6 @@ Chart._adapters._date.override({
 		return DateTime.fromMillis(time, this.options);
 	},
 	
-	/**
-	 * @private
-	 */
-	_isoWeekday: function(dateTime, weekday) {
-		const normalizedWeekday = Math.abs(weekday) % 7 || 7;
-		const diff = dateTime.weekday < normalizedWeekday ? normalizedWeekday - dateTime.weekday - 7 : normalizedWeekday - dateTime.weekday;
-		return dateTime.plus({days: diff}).startOf('day');
-	},	
-	
 	formats: function() {
 		return FORMATS;
 	},
@@ -81,7 +72,8 @@ Chart._adapters._date.override({
 
 	startOf: function(time, unit, weekday) {
 		if (unit === 'isoWeek') {
-			return this._isoWeekday(this._create(time), weekday).valueOf();
+			const dateTime = this._create(time);
+			return dateTime.minus({days: weekday ? dateTime.weekday - 1 : dateTime.weekday % 7 || 0}).startOf('day').valueOf();
 		}
 		return unit ? this._create(time).startOf(unit).valueOf() : time;
 	},
