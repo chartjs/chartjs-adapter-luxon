@@ -72,8 +72,11 @@ Chart._adapters._date.override({
 
 	startOf: function(time, unit, weekday) {
 		if (unit === 'isoWeek') {
-			const dateTime = this._create(time);
-			return dateTime.minus({days: weekday ? dateTime.weekday - 1 : dateTime.weekday % 7 || 0}).startOf('day').valueOf();
+			if (weekday >= 0 && weekday <= 6) {
+				const dateTime = this._create(time);
+				return dateTime.minus({days: (dateTime.weekday < weekday ? 7 : 0) + dateTime.weekday - weekday}).startOf('day').valueOf();
+			}
+			return time;
 		}
 		return unit ? this._create(time).startOf(unit).valueOf() : time;
 	},

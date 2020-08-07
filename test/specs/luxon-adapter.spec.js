@@ -66,7 +66,7 @@ describe('Luxon Adapter', function() {
 	it('should startOf correctly using isoWeek preset', function() {
 		const adapter = new _adapters._date();
 	
-		const dayOfWeekNames = ['Sun', 'Mon'];
+		const dayOfWeekNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 		const daysInMonth = DateTime.local().daysInMonth;
 
 		for (const dayOfWeek of dayOfWeekNames) {
