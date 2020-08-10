@@ -62,4 +62,49 @@ describe('Luxon Adapter', function() {
 		expect(adapter.format(1559056227321, formats.millisecond)).toEqual('3:10:27.321 PM');
 		expect(adapter.format(1559056227321, formats.datetime)).toEqual('May 28, 2019, 3:10:27 PM');
 	});
+	
+	it('should startOf correctly using isoWeek preset', function() {
+		const adapter = new _adapters._date();
+
+		const dayOfWeekNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		const daysInMonth = DateTime.local().daysInMonth;
+
+		for (const dayOfWeek of dayOfWeekNames) {
+			for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+				const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+				const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeekNames.indexOf(dayOfWeek));
+				expect(adapter.format(startOf, 'ccc')).toEqual(dayOfWeek);
+				expect(startOf.day).not.toBeGreaterThan(dt.day);
+			}
+		}
+
+		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', false);
+			expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
+			expect(startOf.day).not.toBeGreaterThan(dt.day);
+		}
+
+		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', true);
+			expect(adapter.format(startOf, 'ccc')).toEqual('Mon');
+			expect(startOf.day).not.toBeGreaterThan(dt.day);
+		}
+
+		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', 100);
+			expect(adapter.format(startOf, 'ccc')).toEqual('Sat');
+			expect(startOf.day).not.toBeGreaterThan(dt.day);
+		}
+
+		for (let dayOfMonth=1; dayOfMonth<=daysInMonth; dayOfMonth++) {
+			const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+			const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', -100);
+			expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
+			expect(startOf.day).not.toBeGreaterThan(dt.day);
+		}
+
+	});
 });
