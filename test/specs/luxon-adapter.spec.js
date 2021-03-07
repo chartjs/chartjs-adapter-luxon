@@ -45,6 +45,12 @@ describe('Luxon Adapter', function() {
     expect(adapter.parse(DateTime.fromISO('1970-01-01T00:00:01Z'))).toEqual(1000);
   });
 
+  it('should parse Luxon Date objects directly', function() {
+    var adapter = new Chart._adapters._date();
+
+    expect(adapter.parse(new Date(0))).toEqual(0);
+  });
+
   it('should format correctly using format presets', function() {
     var adapter = new Chart._adapters._date({zone: 'UTC'});
     var formats = adapter.formats();
