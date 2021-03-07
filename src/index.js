@@ -48,7 +48,7 @@ Chart._adapters._date.override({
       value = DateTime.fromJSDate(value, options);
     } else if (type === 'object' && !(value instanceof DateTime)) {
       value = DateTime.fromObject(value);
-    } 
+    }
 
     return value.isValid ? value.valueOf() : null;
   },
