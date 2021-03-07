@@ -23,8 +23,6 @@ module.exports = function(karma) {
     ];
   }
 
-  console.log(build);
-
   karma.set({
     frameworks: ['jasmine'],
     reporters: ['progress', 'kjhtml'],
