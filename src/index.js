@@ -1,4 +1,4 @@
-import Chart from 'chart.js';
+import {Chart} from 'chart.js';
 import {DateTime} from 'luxon';
 
 const FORMATS = {
