@@ -1,86 +1,72 @@
+const resolve = require('@rollup/plugin-node-resolve').default;
 const terser = require('rollup-plugin-terser').terser;
 const pkg = require('./package.json');
 
 const banner = `/*!
  * ${pkg.name} v${pkg.version}
  * ${pkg.homepage}
- * (c) ${new Date().getFullYear()} Chart.js Contributors
+ * (c) ${new Date().getFullYear()} chartjs-adapter-luxon Contributors
  * Released under the ${pkg.license} license
  */`;
 
 const input = 'src/index.js';
+const external = [
+  'chart.js',
+  'luxon'
+];
+const globals = {
+  'chart.js': 'Chart',
+  luxon: 'luxon'
+};
 
 module.exports = [
-	{
-		input,
-		output: {
-			file: `dist/${pkg.name}.js`,
-			banner: banner,
-			format: 'umd',
-			indent: false,
-			globals: {
-				'chart.js': 'Chart',
-				luxon: 'luxon'
-			}
-		},
-		external: [
-			'chart.js',
-			'luxon'
-		]
-	},
-	{
-		input,
-		plugins: [
-			terser({
-				output: {
-					preamble: banner
-				}
-			})
-		],
-		output: {
-			file: `dist/${pkg.name}.min.js`,
-			format: 'umd',
-			indent: false,
-			globals: {
-				'chart.js': 'Chart',
-				luxon: 'luxon'
-			}
-		},
-		external: [
-			'chart.js',
-			'luxon'
-		]
-	},
-	{
-		input,
-		output: {
-			file: `dist/${pkg.name}.esm.js`,
-			banner,
-			format: 'esm',
-			indent: false,
-		},
-		external: [
-			'chart.js',
-			'luxon'
-		]
-	},
-	{
-		input,
-		plugins: [
-			terser({
-				output: {
-					preamble: banner
-				}
-			})
-		],
-		output: {
-			file: `dist/${pkg.name}.esm.min.js`,
-			format: 'esm',
-			indent: false
-		},
-		external: [
-			'chart.js',
-			'luxon'
-		]
-	}
+  {
+    input,
+    plugins: [
+      //resolve(),
+    ],
+    output: {
+      name: pkg.name,
+      file: pkg.main,
+      banner,
+      format: 'umd',
+      indent: false,
+      globals
+    },
+    external
+  },
+  {
+    input,
+    plugins: [
+      resolve(),
+      terser({
+        output: {
+          preamble: banner
+        }
+      })
+    ],
+    output: {
+      name: pkg.name,
+      file: pkg.main.replace('.js', '.min.js'),
+      format: 'umd',
+      sourcemap: true,
+      indent: false,
+      globals
+    },
+    external
+  },
+  {
+    input,
+    plugins: [
+      resolve(),
+    ],
+    output: {
+      name: pkg.name,
+      file: pkg.module,
+      banner,
+      format: 'esm',
+      indent: false,
+    },
+    external
+  },
 ];
