@@ -2,7 +2,7 @@
   "name": "chartjs-adapter-luxon",
   "homepage": "https://www.chartjs.org",
   "description": "Chart.js adapter to use Luxon for time functionalities",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "license": "MIT",
   "main": "dist/chartjs-adapter-luxon.js",
   "jsdelivr": "dist/chartjs-adapter-luxon.min.js",
