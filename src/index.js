@@ -1,4 +1,4 @@
-import {Chart} from 'chart.js';
+import {_adapters} from 'chart.js';
 import {DateTime} from 'luxon';
 
 const FORMATS = {
@@ -14,7 +14,7 @@ const FORMATS = {
   year: {year: 'numeric'}
 };
 
-Chart._adapters._date.override({
+_adapters._date.override({
   _id: 'luxon', // DEBUG
 
   /**
