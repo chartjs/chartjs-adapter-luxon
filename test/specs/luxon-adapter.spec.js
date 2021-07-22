@@ -111,4 +111,16 @@ describe('Luxon Adapter', function() {
     }
 
   });
+
+  it('should use correct date for startOf isoWeek when date is beginning of week', function() {
+    const adapter = new Chart._adapters._date();
+    const daysInMonth = DateTime.local().daysInMonth;
+
+    for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
+      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+      const dayOfWeek = dt.weekday % 7;
+      const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeek);
+      expect(adapter.format(startOf, 'D')).toEqual(dt.toFormat('D'));
+    }
+  });
 });
