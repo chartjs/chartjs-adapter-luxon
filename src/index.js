@@ -74,7 +74,7 @@ _adapters._date.override({
     if (unit === 'isoWeek') {
       weekday = Math.trunc(Math.min(Math.max(0, weekday), 6));
       const dateTime = this._create(time);
-      return dateTime.minus({days: (dateTime.weekday < weekday ? 7 : 0) + dateTime.weekday - weekday}).startOf('day').valueOf();
+      return dateTime.minus({days: (dateTime.weekday % 7) - weekday}).startOf('day').valueOf();
     }
     return unit ? this._create(time).startOf(unit).valueOf() : time;
   },
