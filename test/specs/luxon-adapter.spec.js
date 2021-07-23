@@ -78,7 +78,7 @@ describe('Luxon Adapter', function() {
         const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
         const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeekNames.indexOf(dayOfWeek));
         expect(adapter.format(startOf, 'ccc')).toEqual(dayOfWeek);
-        expect(startOf.day).not.toBeGreaterThan(dt.day);
+        expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
       }
     }
 
@@ -86,28 +86,28 @@ describe('Luxon Adapter', function() {
       const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', false);
       expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
-      expect(startOf.day).not.toBeGreaterThan(dt.day);
+      expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
       const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', true);
       expect(adapter.format(startOf, 'ccc')).toEqual('Mon');
-      expect(startOf.day).not.toBeGreaterThan(dt.day);
+      expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
       const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', 100);
       expect(adapter.format(startOf, 'ccc')).toEqual('Sat');
-      expect(startOf.day).not.toBeGreaterThan(dt.day);
+      expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
       const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', -100);
       expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
-      expect(startOf.day).not.toBeGreaterThan(dt.day);
+      expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
   });
