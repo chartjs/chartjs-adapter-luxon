@@ -2,7 +2,7 @@
   "name": "chartjs-adapter-luxon",
   "homepage": "https://www.chartjs.org",
   "description": "Chart.js adapter to use Luxon for time functionalities",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "dist/chartjs-adapter-luxon.js",
   "jsdelivr": "dist/chartjs-adapter-luxon.min.js",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
     "chart.js": "^3.0.0",
-    "chartjs-test-utils": "^0.2.2",
+    "chartjs-test-utils": "^0.3.0",
     "concurrently": "^6.1.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.19.0",
