@@ -1,5 +1,5 @@
 import {_adapters} from 'chart.js';
-import {DateTime} from 'luxon';
+import {DateTime, IANAZone} from 'luxon';
 
 const FORMATS = {
   datetime: DateTime.DATETIME_MED_WITH_SECONDS,
@@ -54,7 +54,10 @@ _adapters._date.override({
   },
 
   format: function(time, format) {
-    const datetime = this._create(time);
+    let datetime = this._create(time);
+    if (this.options.targetTimeZone && IANAZone.isValidZone(this.options.targetTimeZone)) {
+      datetime = datetime.setZone(this.options.targetTimeZone);
+    }
     return typeof format === 'string'
       ? datetime.toFormat(format, this.options)
       : datetime.toLocaleString(format);
