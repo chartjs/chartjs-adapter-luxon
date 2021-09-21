@@ -28,9 +28,9 @@ import 'chartjs-adapter-luxon';
 By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the URL:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
-<script src="https://cdn.jsdelivr.net/npm/luxon@1.22.1"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.2.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@^2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
 ```
 
 Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/).
