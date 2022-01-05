@@ -39,7 +39,7 @@ Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/)
 
 Any date adapter options in the chart configuration will be passed through to Luxon's factory functions. See the [Luxon API docs](https://moment.github.io/luxon/api-docs/index.html#datetimefrommillis) for the supported options, such as `zone` and `locale`, that these functions accept.
 
-Read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [Luxon formats](https://moment.github.io/luxon/docs/manual/formatting.html).
+Read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [Luxon formats](https://moment.github.io/luxon/#/formatting).
 
 ## Development
 
