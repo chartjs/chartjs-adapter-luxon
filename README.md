@@ -37,7 +37,19 @@ Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/)
 
 ## Configuration
 
-Any date adapter options in the chart configuration will be passed through to Luxon's factory functions. See the [Luxon API docs](https://moment.github.io/luxon/api-docs/index.html#datetimefrommillis) for the supported options, such as `zone` and `locale`, that these functions accept.
+Any date adapter options in the chart configuration will be passed through to Luxon's factory functions.
+
+The following table describes the supported options, that these functions accept, which can be set to chart [time or time series scale](https://www.chartjs.org/docs/latest/axes/cartesian/time.html).
+
+Namespace: `options.scales[scaleId].adapters.date`
+
+| Name | Type | Default | Description
+| ---- | ---- | ------- | -----------
+| `locale` | `string` | `undefined` | Set a locale to set on the resulting `DateTime` instance. The locale is a string that is a [Unicode BCP 47 locale identifier]. (https://www.unicode.org/reports/tr35/tr35.html#BCP_47_Conformance). By default, Luxon uses the system's locale. See [INTL locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+| `numberingSystem` | `string` | `undefined` | Set the numbering system to set on the resulting `DateTime` instance. See [Luxon](https://moment.github.io/luxon/#/intl?id=numberingsystem) and [INTL numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#syntax) documentation.
+| `outputCalendar` | `string` | `undefined` | Set the output calendar to set on the resulting `DateTime` instance. See [Luxon](https://moment.github.io/luxon/#/calendars?id=output-calendars) and [INTL calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#syntax) documentation.
+| `setZone` | `boolean` | `undefined` | Override the zone with a zone specified in the string itself, if it specifies one. By default, Luxon uses `options.setZone=false`.
+| `zone` | `string`\|`Zone` | `undefined` | Set the zone to place the `DateTime` into. By default, Luxon uses `options.zone='local'`. See [Luxon](https://moment.github.io/luxon/#/zones?id=luxon-works-with-time-zones) and [INTL timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#syntax) documentation.
 
 Read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [Luxon formats](https://moment.github.io/luxon/#/formatting).
 
