@@ -39,7 +39,7 @@ Read more about jsDelivr versioning on their [website](http://www.jsdelivr.com/)
 
 Any date adapter options in the chart configuration will be passed through to Luxon's factory functions.
 
-The following table describes the supported options, that these functions accept, which can be set to chart [time or time series scale](https://www.chartjs.org/docs/latest/axes/cartesian/time.html).
+The following table describes the supported options that these functions accept.
 
 Namespace: `options.scales[scaleId].adapters.date`
 
