@@ -45,7 +45,7 @@ Namespace: `options.scales[scaleId].adapters.date`
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
-| `locale` | `string` | `undefined` | Set a locale to set on the resulting `DateTime` instance. The locale is a string that is a [Unicode BCP 47 locale identifier]. (https://www.unicode.org/reports/tr35/tr35.html#BCP_47_Conformance). By default, Luxon uses the system's locale. See [INTL locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+| `locale` | `string` | `undefined` | Set a locale to set on the resulting `DateTime` instance. By default, Luxon uses the system's locale. See [INTL locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
 | `numberingSystem` | `string` | `undefined` | Set the numbering system to set on the resulting `DateTime` instance. See [Luxon](https://moment.github.io/luxon/#/intl?id=numberingsystem) and [INTL numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#syntax) documentation.
 | `outputCalendar` | `string` | `undefined` | Set the output calendar to set on the resulting `DateTime` instance. See [Luxon](https://moment.github.io/luxon/#/calendars?id=output-calendars) and [INTL calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#syntax) documentation.
 | `setZone` | `boolean` | `undefined` | Override the zone with a zone specified in the string itself, if it specifies one. By default, Luxon uses `options.setZone=false`.
