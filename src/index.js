@@ -47,7 +47,7 @@ _adapters._date.override({
     } else if (value instanceof Date) {
       value = DateTime.fromJSDate(value, options);
     } else if (type === 'object' && !(value instanceof DateTime)) {
-      value = DateTime.fromObject(value);
+      value = DateTime.fromObject(value, options);
     }
 
     return value.isValid ? value.valueOf() : null;
@@ -56,7 +56,7 @@ _adapters._date.override({
   format: function(time, format) {
     const datetime = this._create(time);
     return typeof format === 'string'
-      ? datetime.toFormat(format, this.options)
+      ? datetime.toFormat(format)
       : datetime.toLocaleString(format);
   },
 
