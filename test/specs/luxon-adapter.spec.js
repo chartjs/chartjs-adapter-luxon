@@ -52,7 +52,7 @@ describe('Luxon Adapter', function() {
   });
 
   it('should format correctly using format presets', function() {
-    var adapter = new Chart._adapters._date({zone: 'UTC'});
+    var adapter = new Chart._adapters._date({zone: 'UTC', locale: 'en-US'});
     var formats = adapter.formats();
 
     expect(adapter.format(1559056227321, formats.year)).toEqual('2019');
