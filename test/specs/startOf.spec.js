@@ -37,7 +37,7 @@ describe('Luxon Adapter', function() {
 
     for (const dayOfWeek of dayOfWeekNames) {
       for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
-        const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+        const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30}, options);
         const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeekNames.indexOf(dayOfWeek));
         expect(adapter.format(startOf, 'ccc')).toEqual(dayOfWeek);
         expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
@@ -45,28 +45,28 @@ describe('Luxon Adapter', function() {
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
-      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30}, options);
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', false);
       expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
       expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
-      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30}, options);
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', true);
       expect(adapter.format(startOf, 'ccc')).toEqual('Mon');
       expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
-      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30}, options);
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', 100);
       expect(adapter.format(startOf, 'ccc')).toEqual('Sat');
       expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
     }
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
-      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30}, options);
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', -100);
       expect(adapter.format(startOf, 'ccc')).toEqual('Sun');
       expect(DateTime.fromMillis(startOf)).toBeLessThanOrEqual(dt);
@@ -78,7 +78,7 @@ describe('Luxon Adapter', function() {
     const daysInMonth = DateTime.local().daysInMonth;
 
     for (let dayOfMonth = 1; dayOfMonth <= daysInMonth; dayOfMonth++) {
-      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30});
+      const dt = DateTime.fromObject({day: dayOfMonth, hour: 8, minute: 30}, options);
       const dayOfWeek = dt.weekday % 7;
       const startOf = adapter.startOf(dt.valueOf(), 'isoWeek', dayOfWeek);
       expect(adapter.format(startOf, 'D')).toEqual(dt.toFormat('D'));
