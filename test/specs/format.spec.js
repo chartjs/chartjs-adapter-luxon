@@ -1,3 +1,5 @@
+import {formatData} from '../data';
+
 describe('\'format\' method', function() {
   const invalidFormats = {
     number: 0,
@@ -5,7 +7,7 @@ describe('\'format\' method', function() {
     object: {}
   };
 
-  for (const item of window.formatData) {
+  for (const item of formatData) {
     const {locale, value} = item;
     const adapter = new Chart._adapters._date({zone: 'UTC', locale});
     const formats = adapter.formats();

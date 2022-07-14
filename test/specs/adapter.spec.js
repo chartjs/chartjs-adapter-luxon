@@ -1,6 +1,8 @@
+import {formatData} from '../data';
+
 describe('Luxon Adapter', function() {
 
-  for (const item of window.formatData) {
+  for (const item of formatData) {
     const {locale, adapter} = item;
 
     it(`should accept timezone and locale ${locale} configuration`, function() {

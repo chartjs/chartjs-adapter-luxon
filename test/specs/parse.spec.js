@@ -1,8 +1,9 @@
+import {parseData} from '../data';
 const {DateTime} = luxon;
 
 describe('\'parse\' method', function() {
 
-  for (const item of window.parseData) {
+  for (const item of parseData) {
     const {locale} = item;
     const adapter = new Chart._adapters._date({zone: 'UTC', locale});
 
