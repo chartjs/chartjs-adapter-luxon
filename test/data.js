@@ -2,6 +2,7 @@ export const formatData = [
   {
     locale: 'en-US',
     value: 1559056227321,
+    adapter: 'Jan 1, 1970, 6:00:00 AM',
     units: {
       default: '5/28/2019',
       datetime: 'May 28, 2019, 3:10:27 PM',
@@ -19,6 +20,7 @@ export const formatData = [
   {
     locale: 'en-GB',
     value: 1559056227321,
+    adapter: 'Jan 1, 1970, 6:00:00 am',
     units: {
       default: '28/05/2019',
       datetime: '28 May 2019, 15:10:27',
@@ -36,6 +38,7 @@ export const formatData = [
   {
     locale: 'de-DE',
     value: 1559056227321,
+    adapter: 'Jan. 1, 1970, 6:00:00 AM',
     units: {
       default: '28.5.2019',
       datetime: '28. Mai 2019, 15:10:27',
