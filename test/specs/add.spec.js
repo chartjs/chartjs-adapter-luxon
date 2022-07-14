@@ -1,6 +1,6 @@
 const {DateTime} = luxon;
 
-describe('\'add\' method', function() {
+describe(`'add' method`, function() {
 
   const start = '2019-05-28T15:10:27.321Z';
   const amount = 1;

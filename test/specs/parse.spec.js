@@ -1,7 +1,7 @@
 import {parseData} from '../data';
 const {DateTime} = luxon;
 
-describe('\'parse\' method', function() {
+describe(`'parse' method`, function() {
 
   for (const item of parseData) {
     const {locale} = item;
