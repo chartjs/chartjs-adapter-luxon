@@ -23,7 +23,7 @@ describe('Luxon Adapter', function() {
       new Date('2019-05-28T15:10:27.321Z'), // JS date with ISO
       DateTime.fromMillis(1559056227321, options), // Luxon UTC
       DateTime.fromISO('2019-05-28T15:10:27.321Z', options), // Luxon ISO
-      {year: 2019, month: 5, day: 28, hour: 17, minute: 10, second: 27, millisecond: 321} // INTL object
+      {year: 2019, month: 5, day: 28, hour: 15, minute: 10, second: 27, millisecond: 321} // INTL object
     ];
     const adapter = new Chart._adapters._date(options);
     for (const item of inputValues) {
