@@ -18,12 +18,12 @@ describe('\'parse\' method', function() {
   it('should correctly parse using different types of value', function() {
     const options = {zone: 'UTC', locale: 'en-US'};
     const inputValues = {
-      'utc': 1559056227321,
-      'jsDate': new Date(1559056227321),
-      'jsISODate': new Date('2019-05-28T15:10:27.321Z'),
-      'luxonDateTime': DateTime.fromMillis(1559056227321, options),
-      'luxonISODateTime': DateTime.fromISO('2019-05-28T15:10:27.321Z', options),
-      'luxonDateTimeObject': {year: 2019, month: 5, day: 28, hour: 15, minute: 10, second: 27, millisecond: 321} // INTL object
+      utc: 1559056227321,
+      jsDate: new Date(1559056227321),
+      jsISODate: new Date('2019-05-28T15:10:27.321Z'),
+      luxonDateTime: DateTime.fromMillis(1559056227321, options),
+      luxonISODateTime: DateTime.fromISO('2019-05-28T15:10:27.321Z', options),
+      luxonDateTimeObject: {year: 2019, month: 5, day: 28, hour: 15, minute: 10, second: 27, millisecond: 321} // INTL object
     };
     const adapter = new Chart._adapters._date(options);
     for (const key of Object.keys(inputValues)) {
@@ -33,9 +33,9 @@ describe('\'parse\' method', function() {
 
   it('should not parse invalid types of value', function() {
     const invalidValues = {
-      'function': function() {},
-      'null': null,
-      'undefined': undefined
+      function: function() {},
+      null: null,
+      undefined: undefined
     };
     const adapter = new Chart._adapters._date();
     for (const key of Object.keys(invalidValues)) {

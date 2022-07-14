@@ -1,8 +1,8 @@
 describe('\'format\' method', function() {
   const invalidFormats = {
-    'number': 0,
-    'function': function() {},
-    'object': {}
+    number: 0,
+    function: function() {},
+    object: {}
   };
 
   for (const item of window.formatData) {
