@@ -31,7 +31,7 @@ module.exports = function(karma) {
 
     client: {
       jasmine: {
-        failFast: !!karma.autoWatch
+        stopOnSpecFailure: !!karma.autoWatch
       }
     },
 
