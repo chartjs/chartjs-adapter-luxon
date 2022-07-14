@@ -1,6 +1,6 @@
 const {DateTime} = luxon;
 
-describe('Luxon Adapter', function() {
+describe('\'add\' method', function() {
 
   const start = '2019-05-28T15:10:27.321Z';
   const amount = 1;
@@ -21,14 +21,14 @@ describe('Luxon Adapter', function() {
   const options = {zone: 'UTC'};
   const adapter = new Chart._adapters._date(options);
 
-  it(`should add correctly ${amount} units to ${start}`, function() {
+  it(`should correctly add ${amount} units to ${start}`, function() {
     for (const unit of Object.keys(units)) {
       const result = adapter.add(utcStart, amount, unit);
       expect(DateTime.fromMillis(result, options).toISO()).withContext(`unit: ${unit}`).toEqual(units[unit]);
     }
   });
 
-  it('should not manage invalid unit for adding', function() {
+  it('should not manage invalid unit', function() {
     expect(() => adapter.add(DateTime.now().toMillis(), 1, 'dateTime')).toThrow(new Error('Invalid unit dateTime'));
   });
 

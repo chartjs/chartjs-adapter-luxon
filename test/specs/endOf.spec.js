@@ -1,6 +1,6 @@
 const {DateTime} = luxon;
 
-describe('Luxon Adapter', function() {
+describe('\'endOf\' method', function() {
 
   const date = '2019-05-28T15:10:27.321Z';
   const units = {
@@ -20,14 +20,14 @@ describe('Luxon Adapter', function() {
   const options = {zone: 'UTC', locale: 'en-GB'};
   const adapter = new Chart._adapters._date(options);
 
-  it('should calculate correctly the endOf for specific unit', function() {
+  it('should correctly calculate the end of the period for specific unit', function() {
     for (const unit of Object.keys(units)) {
       const result = adapter.endOf(utcStart, unit);
       expect(DateTime.fromMillis(result, options).toISO()).withContext(`unit: ${unit}`).toEqual(units[unit]);
     }
   });
 
-  it('should not manage invalid unit for endOf', function() {
+  it('should not manage invalid unit', function() {
     expect(() => adapter.endOf(utcStart, 'dateTime')).toThrow(new Error('Invalid unit dateTime'));
   });
 
