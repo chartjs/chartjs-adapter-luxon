@@ -1,6 +1,6 @@
 const {DateTime} = luxon;
 
-describe(`'diff' method`, function() {
+describe('"diff" method', function() {
 
   const min = '2018-05-28T15:10:27.321Z';
   const max = '2019-05-28T15:10:27.321Z';

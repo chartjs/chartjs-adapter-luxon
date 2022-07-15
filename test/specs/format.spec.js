@@ -1,6 +1,6 @@
 import {formatData} from '../data';
 
-describe(`'format' method`, function() {
+describe('"format" method', function() {
   const invalidFormats = {
     number: 0,
     function: function() {},

@@ -1,6 +1,6 @@
 const {DateTime} = luxon;
 
-describe(`'endOf' method`, function() {
+describe('"endOf" method', function() {
 
   const date = '2019-05-28T15:10:27.321Z';
   const units = {
