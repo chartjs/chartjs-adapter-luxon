@@ -24,7 +24,7 @@ describe('"parse" method', function() {
       jsISODate: new Date('2019-05-28T15:10:27.321Z'),
       luxonDateTime: DateTime.fromMillis(1559056227321, options),
       luxonISODateTime: DateTime.fromISO('2019-05-28T15:10:27.321Z', options),
-      luxonDateTimeObject: {year: 2019, month: 5, day: 28, hour: 15, minute: 10, second: 27, millisecond: 321} // INTL object
+      luxonDateTimeObject: {year: 2019, month: 5, day: 28, hour: 15, minute: 10, second: 27, millisecond: 321}
     };
     const adapter = new Chart._adapters._date(options);
     for (const key of Object.keys(inputValues)) {
