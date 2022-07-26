@@ -31,11 +31,11 @@ _adapters._date.override({
   parse: function(value, format) {
     const options = this.options;
 
-    if (value === null || typeof value === 'undefined') {
+    const type = typeof value;
+    if (value === null || type === 'undefined') {
       return null;
     }
 
-    const type = typeof value;
     if (type === 'number') {
       value = this._create(value);
     } else if (type === 'string') {
