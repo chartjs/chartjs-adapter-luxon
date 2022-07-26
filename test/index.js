@@ -14,3 +14,5 @@ beforeEach(function() {
 afterEach(function() {
   releaseCharts();
 });
+
+console.warn('Testing with chart.js v' + Chart.version + ', luxon v' + luxon.VERSION);
