@@ -24,6 +24,12 @@ _adapters._date.override({
     return DateTime.fromMillis(time, this.options);
   },
 
+  init(chartOptions) {
+    if (!this.options.locale) {
+      this.options.locale = chartOptions.locale;
+    }
+  },
+
   formats: function() {
     return FORMATS;
   },
