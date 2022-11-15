@@ -52,7 +52,7 @@
     "yargs": "^17.0.1"
   },
   "peerDependencies": {
-    "chart.js": "^3.0.0",
+    "chart.js": ">=3.0.0",
     "luxon": ">=1.0.0"
   }
 }
