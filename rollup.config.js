@@ -1,12 +1,14 @@
-const resolve = require('@rollup/plugin-node-resolve').default;
-const terser = require('@rollup/plugin-terser').default;
-const pkg = require('./package.json');
+import {readFileSync} from 'fs';
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+
+const {name, version, homepage, license} = JSON.parse(readFileSync('./package.json'));
 
 const banner = `/*!
- * ${pkg.name} v${pkg.version}
- * ${pkg.homepage}
+ * ${name} v${version}
+ * ${homepage}
  * (c) ${new Date().getFullYear()} chartjs-adapter-luxon Contributors
- * Released under the ${pkg.license} license
+ * Released under the ${license} license
  */`;
 
 const input = 'src/index.js';
@@ -19,15 +21,15 @@ const globals = {
   luxon: 'luxon'
 };
 
-module.exports = [
+export default [
   {
     input,
     plugins: [
       //resolve(),
     ],
     output: {
-      name: pkg.name,
-      file: pkg.main,
+      name,
+      file: 'dist/chartjs-adapter-luxon.umd.js',
       banner,
       format: 'umd',
       indent: false,
@@ -46,8 +48,8 @@ module.exports = [
       })
     ],
     output: {
-      name: pkg.name,
-      file: pkg.main.replace('.js', '.min.js'),
+      name,
+      file: 'dist/chartjs-adapter-luxon.umd.min.js',
       format: 'umd',
       indent: false,
       globals
@@ -60,8 +62,8 @@ module.exports = [
       resolve(),
     ],
     output: {
-      name: pkg.name,
-      file: pkg.module,
+      name,
+      file: 'dist/chartjs-adapter-luxon.esm.js',
       banner,
       format: 'esm',
       indent: false,
