@@ -4,10 +4,12 @@
   "description": "Chart.js adapter to use Luxon for time functionalities",
   "version": "1.2.0",
   "license": "MIT",
-  "main": "dist/chartjs-adapter-luxon.js",
-  "jsdelivr": "dist/chartjs-adapter-luxon.min.js",
-  "unpkg": "dist/chartjs-adapter-luxon.min.js",
-  "module": "dist/chartjs-adapter-luxon.esm.js",
+  "type": "module",
+  "jsdelivr": "dist/chartjs-adapter-luxon.umd.min.js",
+  "unpkg": "dist/chartjs-adapter-luxon.umd.min.js",
+  "exports": {
+    ".": "./dist/chartjs-adapter-luxon.esm.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/chartjs/chartjs-adapter-luxon.git"
@@ -23,11 +25,11 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "dev": "karma start --auto-watch --no-single-run --browsers chrome",
+    "dev": "karma start ./karma.conf.cjs --auto-watch --no-single-run --browsers chrome",
     "lint": "eslint test/**/*.js src/**/*.js",
     "test": "cross-env NODE_ENV=test concurrently \"npm:test-*\"",
     "test-lint": "npm run lint",
-    "test-karma": "karma start --auto-watch --single-run"
+    "test-karma": "karma start ./karma.conf.cjs --auto-watch --single-run"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
